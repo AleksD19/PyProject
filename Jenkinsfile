@@ -5,7 +5,7 @@ pipeline {
         stage('Build & Run') {
             steps {
                 sh '''#!/bin/bash
-                    whoami
+                    docker --version
                     '''      
             }
         }
