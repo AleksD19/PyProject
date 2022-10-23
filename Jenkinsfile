@@ -5,7 +5,7 @@ pipeline {
         stage('Build & Run') {
             steps {
                 sh '''#!/bin/bash
-                    sudo docker images
+                    whoami
                     '''      
             }
         }
