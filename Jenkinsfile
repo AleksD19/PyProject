@@ -4,9 +4,9 @@ pipeline {
     stages {
         stage('Build & Run') {
             steps {
-
-                sh  'docker images'
-                
+                sh '''#!/bin/bash
+                    sudo docker images
+                    '''      
             }
         }
 
