@@ -12,7 +12,7 @@ pipeline {
         stage("Run"){
             steps{
                 sh '''#!/bin/bash
-                    sudo docker run -d -p 8000:80 aleksnd19/test
+                    sudo docker run -d -p 8000:8000 aleksnd19/test
                     '''  
             }
         }
