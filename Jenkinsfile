@@ -6,10 +6,11 @@ pipeline {
             steps {
        
                 sh '''#!/bin/bash
-                    sudo docker build /home/jenkins/workspace/Pipeline1 -t aleknd19/test
+                    sudo docker build /home/ubuntu/workspace/Pipeline1 -t aleknd19/test
                     '''   
             }
         }
 
     }
 }
+
