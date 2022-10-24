@@ -2,14 +2,6 @@ pipeline {
     agent {label 'node1'}
 
     stages {
-        stage('Delete Old') {
-            steps {
-                sh '''#!/bin/bash
-                    sudo docker rm $(docker ps -aq)
-                    '''  
-                
-            }
-        }
         stage("Build"){
             steps{
                 sh '''#!/bin/bash
