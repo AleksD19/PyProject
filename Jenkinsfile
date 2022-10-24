@@ -1,12 +1,15 @@
 pipeline {
-    agent { label 'node1' }
+    agent {label 'node1'}
 
     stages {
         stage('Build & Run') {
             steps {
                 sh '''#!/bin/bash
-                    sudo docker images
-                    '''      
+                    sudo docker rm -f $(sudo docker ps -a -q)
+                    '''     
+                sh '''#!/bin/bash
+                    sudo docker build /home/jenkins/workspace/Pipeline1 -t aleknd19/test
+                    '''   
             }
         }
 
