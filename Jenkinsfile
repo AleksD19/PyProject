@@ -5,7 +5,7 @@ pipeline {
         stage('Delete Old') {
             steps {
                 sh '''#!/bin/bash
-                    sudo docker rm -f $(sudo docker ps -a -q)
+                    sudo docker rm $(docker ps -aq)
                     '''  
                 
             }
