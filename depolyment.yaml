@@ -1,0 +1,61 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: webserver
+spec:
+  type: NodePort
+  selector:
+    tier: front-end
+  ports:
+    - port: 80
+      targetPort: 8000
+      nodePort: 30005
+ubuntu@ip-172-31-33-44:~/my-project$ cat nginx-service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: webserver
+spec:
+  type: NodePort
+  selector:
+    tier: front-end
+  ports:
+    - port: 80
+      targetPort: 8000
+      nodePort: 30005
+ubuntu@ip-172-31-33-44:~/my-project$ cat nginx-deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: aleksserver
+  labels:
+    app: aleksserver
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: aleksserver
+  template:
+    metadata:
+      labels:
+        app: aleksserver
+    spec:
+      containers:
+      - name: aleksserver
+        image: aleksnd19/assignment
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 80
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: aleksserver
+  labels:
+    tier: front-end
+spec:
+  containers:
+  - name: nginx
+    image: aleksnd19/assignment
+    ports:
+    - containerPort: 80
