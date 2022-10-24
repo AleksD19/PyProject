@@ -5,7 +5,7 @@ pipeline {
         stage("Build"){
             steps{
                 sh '''#!/bin/bash
-                    sudo docker build /home/ubuntu/workspace/Pipeline1 -t aleknd19/test
+                    sudo docker build /home/ubuntu/workspace/Pipeline1 -t aleksnd19/test
                     '''   
             }
         }
